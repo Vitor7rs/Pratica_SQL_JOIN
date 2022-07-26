@@ -32,3 +32,16 @@ JOIN users u ON e."userId" = u.id
 JOIN roles r ON e."roleId" = r.id
 JOIN companies c ON e."companyId" = c.id
 WHERE u.id = 50 AND e."endDate" IS NULL
+
+-- Bônus
+
+SELECT s.id AS id, s.name AS school, cour.name AS course, com.name AS company, r.name AS role
+FROM educations e
+JOIN schools s ON e."schoolId" = s.id
+JOIN courses cour ON e."courseId" = cour.id
+JOIN users u ON e."userId" = u.id
+JOIN applicants a ON a."userId" = u.id
+JOIN jobs j ON a."jobId" = j.id
+JOIN roles r ON j."roleId" = r.id
+JOIN companies com ON j."companyId" = com.id
+WHERE com.id = 10 AND r.name = 'Software Engineer' AND j.active = true
