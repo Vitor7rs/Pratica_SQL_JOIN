@@ -33,6 +33,7 @@ JOIN roles r ON e."roleId" = r.id
 JOIN companies c ON e."companyId" = c.id
 WHERE u.id = 50 AND e."endDate" IS NULL
 
+
 -- Bônus
 
 SELECT s.id AS id, s.name AS school, cour.name AS course, com.name AS company, r.name AS role
